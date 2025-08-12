@@ -1,1 +1,1361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nuclear Medicine Consolidation - Quality Care Across Asia</title>
+    <style>
+        :root {
+            --primary: #EF5350;
+            --secondary: #FF7043;
+            --body: #F8F3F0;
+            --text: #1D1D1B;
+            --secondary-dark: #9C3A26;
+        }
 
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background-color: var(--body);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary-dark));
+            color: white;
+            padding: 3.5rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -30%;
+            width: 900px;
+            height: 900px;
+            background: radial-gradient(circle, rgba(255, 112, 67, 0.25) 0%, transparent 70%);
+            animation: medicalPulse 20s ease-in-out infinite;
+        }
+
+        header::after {
+            content: '';
+            position: absolute;
+            bottom: -60%;
+            left: -25%;
+            width: 800px;
+            height: 800px;
+            background: conic-gradient(from 120deg, rgba(255, 255, 255, 0.12), transparent, rgba(255, 255, 255, 0.08));
+            animation: rotate 45s linear infinite;
+        }
+
+        @keyframes medicalPulse {
+            0%, 100% { transform: scale(1) rotate(0deg); opacity: 0.25; }
+            50% { transform: scale(1.6) rotate(180deg); opacity: 0.35; }
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .logo-section {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 55px;
+            margin-bottom: 4.5rem;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            height: 90px;
+            width: auto;
+            background: white;
+            padding: 25px;
+            border-radius: 22px;
+            box-shadow: 0 18px 45px rgba(0, 0, 0, 0.35);
+            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            position: relative;
+        }
+
+        .logo::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, transparent, rgba(255, 112, 67, 0.25), transparent);
+            border-radius: 22px;
+            opacity: 0;
+            transition: opacity 0.6s ease;
+        }
+
+        .logo:hover {
+            transform: translateY(-20px) scale(1.18) rotateY(12deg);
+            box-shadow: 0 40px 80px rgba(0, 0, 0, 0.45);
+        }
+
+        .logo:hover::before {
+            opacity: 1;
+        }
+
+        .hero-text {
+            text-align: center;
+            max-width: 1150px;
+            margin: 0 auto;
+        }
+
+        .hero-text h1 {
+            font-size: clamp(3.8rem, 10vw, 6.5rem);
+            margin-bottom: 2.5rem;
+            font-weight: 900;
+            letter-spacing: -5px;
+            background: linear-gradient(45deg, #fff, #FF7043, #fff, #EF5350, #fff);
+            background-size: 500% 100%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: textFlow 10s ease-in-out infinite;
+        }
+
+        @keyframes textFlow {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        .hero-text .subtitle {
+            font-size: clamp(1.5rem, 5vw, 2.4rem);
+            opacity: 0.95;
+            margin-bottom: 3.5rem;
+            font-weight: 300;
+        }
+
+        .hero-text .medical-info {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 2rem 4rem;
+            border-radius: 60px;
+            font-weight: 900;
+            font-size: 1.4rem;
+            display: inline-block;
+            backdrop-filter: blur(30px);
+            border: 4px solid rgba(255, 255, 255, 0.3);
+            transition: all 0.6s ease;
+            margin-bottom: 3rem;
+        }
+
+        .hero-text .medical-info:hover {
+            background: rgba(255, 255, 255, 0.35);
+            transform: translateY(-10px) scale(1.08);
+            border-color: rgba(255, 255, 255, 0.7);
+        }
+
+        .hero-text .medical-features {
+            display: flex;
+            justify-content: center;
+            gap: 3.5rem;
+            flex-wrap: wrap;
+            margin-top: 4.5rem;
+        }
+
+        .medical-feature {
+            background: rgba(255, 255, 255, 0.18);
+            padding: 2rem 4rem;
+            border-radius: 50px;
+            font-weight: 900;
+            backdrop-filter: blur(25px);
+            border: 4px solid rgba(255, 255, 255, 0.3);
+            transition: all 0.7s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .medical-feature::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.6), transparent);
+            transition: left 1.2s ease;
+        }
+
+        .medical-feature:hover {
+            background: rgba(255, 255, 255, 0.35);
+            transform: translateY(-12px) scale(1.12);
+            border-color: rgba(255, 255, 255, 0.7);
+        }
+
+        .medical-feature:hover::before {
+            left: 100%;
+        }
+
+        /* Navigation */
+        nav {
+            background: var(--secondary-dark);
+            padding: 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 10px 40px rgba(156, 58, 38, 0.7);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .nav-item {
+            color: white;
+            text-decoration: none;
+            padding: 2.5rem 4.5rem;
+            transition: all 0.7s ease;
+            font-weight: 900;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .nav-item::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 8px;
+            background: linear-gradient(90deg, var(--secondary), var(--primary));
+            transition: all 0.7s ease;
+            transform: translateX(-50%);
+        }
+
+        .nav-item::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(255, 112, 67, 0.35), rgba(239, 83, 80, 0.35));
+            opacity: 0;
+            transition: opacity 0.6s ease;
+        }
+
+        .nav-item:hover {
+            color: var(--secondary);
+            transform: translateY(-5px);
+        }
+
+        .nav-item:hover::before {
+            width: 100%;
+        }
+
+        .nav-item:hover::after {
+            opacity: 1;
+        }
+
+        /* Main Content */
+        main {
+            padding: 8rem 0;
+        }
+
+        .section {
+            margin-bottom: 12rem;
+            background: white;
+            border-radius: 45px;
+            padding: 7rem;
+            box-shadow: 0 35px 120px rgba(239, 83, 80, 0.25);
+            position: relative;
+            overflow: hidden;
+            transform: translateY(70px);
+            opacity: 0;
+            animation: slideInUp 2.5s ease forwards;
+        }
+
+        .section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 15px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary), var(--primary));
+            background-size: 600% 100%;
+            animation: medicalWave 7s ease-in-out infinite;
+        }
+
+        @keyframes medicalWave {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        @keyframes slideInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .section:nth-child(even) {
+            animation-delay: 0.8s;
+        }
+
+        .section:nth-child(odd) {
+            animation-delay: 0.4s;
+        }
+
+        .section h2 {
+            font-size: 4.5rem;
+            color: var(--primary);
+            margin-bottom: 6rem;
+            position: relative;
+            font-weight: 900;
+        }
+
+        .section h3 {
+            font-size: 3rem;
+            color: var(--secondary-dark);
+            margin: 6rem 0 4rem 0;
+            font-weight: 900;
+        }
+
+        /* Medical Crisis Statistics */
+        .medical-crisis {
+            background: linear-gradient(135deg, rgba(239, 83, 80, 0.18), rgba(255, 112, 67, 0.18));
+            padding: 7rem;
+            border-radius: 40px;
+            margin: 7rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .medical-crisis::before {
+            content: '';
+            position: absolute;
+            top: -100%;
+            left: -100%;
+            width: 300%;
+            height: 300%;
+            background: radial-gradient(circle, rgba(255, 112, 67, 0.12) 0%, transparent 70%);
+            animation: rotate 55s linear infinite;
+        }
+
+        .crisis-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 5rem;
+            margin: 6rem 0;
+            position: relative;
+            z-index: 2;
+        }
+
+        .crisis-stat {
+            background: white;
+            padding: 5rem;
+            border-radius: 30px;
+            text-align: center;
+            transition: all 0.8s ease;
+            border: 5px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .crisis-stat::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 112, 67, 0.3), transparent);
+            transition: left 1.2s ease;
+        }
+
+        .crisis-stat:hover {
+            transform: translateY(-30px) scale(1.08);
+            border-color: var(--secondary);
+            box-shadow: 0 45px 90px rgba(239, 83, 80, 0.4);
+        }
+
+        .crisis-stat:hover::before {
+            left: 100%;
+        }
+
+        .crisis-icon {
+            font-size: 7rem;
+            margin-bottom: 3rem;
+            display: block;
+        }
+
+        .crisis-title {
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: var(--primary);
+            margin-bottom: 2.5rem;
+        }
+
+        .crisis-desc {
+            font-size: 1.4rem;
+            color: var(--text);
+            line-height: 2;
+        }
+
+        /* Regional Network */
+        .regional-network {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 4rem;
+            margin: 7rem 0;
+        }
+
+        .country-medical {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 5rem;
+            border-radius: 35px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.9s ease;
+        }
+
+        .country-medical::before {
+            content: '';
+            position: absolute;
+            top: -90%;
+            right: -90%;
+            width: 180%;
+            height: 180%;
+            background: rgba(255, 255, 255, 0.18);
+            border-radius: 50%;
+            transition: all 0.9s ease;
+        }
+
+        .country-medical:hover {
+            transform: translateY(-35px) scale(1.12);
+            box-shadow: 0 55px 110px rgba(239, 83, 80, 0.7);
+        }
+
+        .country-medical:hover::before {
+            transform: scale(2.2) rotate(45deg);
+        }
+
+        .country-flag {
+            font-size: 5.5rem;
+            margin-bottom: 3rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .country-name {
+            font-size: 2.2rem;
+            font-weight: 900;
+            margin-bottom: 1.5rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .country-institution {
+            position: relative;
+            z-index: 2;
+            font-size: 1.2rem;
+            opacity: 0.95;
+            line-height: 1.8;
+        }
+
+        /* Education Platform */
+        .education-platform {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+            gap: 6rem;
+            margin: 8rem 0;
+        }
+
+        .platform-component {
+            background: var(--body);
+            padding: 6rem;
+            border-radius: 35px;
+            border-left: 15px solid var(--primary);
+            transition: all 0.7s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .platform-component::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 0;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(239, 83, 80, 0.15), rgba(255, 112, 67, 0.15));
+            transition: width 0.9s ease;
+        }
+
+        .platform-component:hover {
+            transform: translateX(30px);
+            box-shadow: 0 35px 70px rgba(239, 83, 80, 0.3);
+            border-left-color: var(--secondary);
+        }
+
+        .platform-component:hover::before {
+            width: 100%;
+        }
+
+        .platform-component h4 {
+            color: var(--primary);
+            margin-bottom: 3rem;
+            font-size: 2.2rem;
+            font-weight: 900;
+            position: relative;
+            z-index: 2;
+        }
+
+        .platform-component p {
+            position: relative;
+            z-index: 2;
+            line-height: 1.9;
+            font-size: 1.4rem;
+        }
+
+        /* Activities & Outcomes */
+        .activities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 5rem;
+            margin: 7rem 0;
+        }
+
+        .activity-card {
+            background: white;
+            padding: 5rem;
+            border-radius: 30px;
+            box-shadow: 0 25px 60px rgba(239, 83, 80, 0.18);
+            transition: all 0.7s ease;
+            border: 4px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .activity-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 112, 67, 0.25), transparent);
+            transition: left 1s ease;
+        }
+
+        .activity-card:hover {
+            transform: translateY(-25px) scale(1.05);
+            border-color: var(--secondary);
+            box-shadow: 0 40px 80px rgba(239, 83, 80, 0.35);
+        }
+
+        .activity-card:hover::before {
+            left: 100%;
+        }
+
+        .activity-title {
+            font-size: 2rem;
+            font-weight: 900;
+            color: var(--primary);
+            margin-bottom: 2.5rem;
+        }
+
+        .activity-desc {
+            font-size: 1.3rem;
+            line-height: 1.9;
+            color: var(--text);
+        }
+
+        /* Impact Statistics */
+        .impact-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 4rem;
+            margin: 7rem 0;
+        }
+
+        .impact-stat {
+            background: linear-gradient(135deg, var(--secondary-dark), var(--primary));
+            color: white;
+            padding: 5rem;
+            border-radius: 35px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.9s ease;
+        }
+
+        .impact-stat::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transform: translateX(-100%);
+            transition: transform 1.4s ease;
+        }
+
+        .impact-stat:hover::before {
+            transform: translateX(100%);
+        }
+
+        .impact-stat:hover {
+            transform: scale(1.18);
+        }
+
+        .impact-number {
+            font-size: 5rem;
+            font-weight: 900;
+            display: block;
+            margin-bottom: 2rem;
+        }
+
+        .impact-label {
+            font-size: 1.4rem;
+            font-weight: 800;
+        }
+
+        /* SDG Section */
+        .sdg-medical {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 4rem;
+            margin: 7rem 0;
+        }
+
+        .sdg-card {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 5rem;
+            border-radius: 35px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.8s ease;
+        }
+
+        .sdg-card::before {
+            content: '';
+            position: absolute;
+            top: -250%;
+            left: 0;
+            width: 100%;
+            height: 250%;
+            background: rgba(255, 255, 255, 0.3);
+            transition: top 0.8s ease;
+        }
+
+        .sdg-card:hover {
+            transform: translateY(-25px) scale(1.1);
+        }
+
+        .sdg-card:hover::before {
+            top: 0;
+        }
+
+        .sdg-number {
+            font-size: 4.5rem;
+            font-weight: 900;
+            display: block;
+            margin-bottom: 3rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .sdg-title {
+            position: relative;
+            z-index: 2;
+            font-weight: 900;
+            font-size: 1.8rem;
+        }
+
+        /* Future Vision */
+        .future-medical {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 10rem;
+            border-radius: 45px;
+            text-align: center;
+            margin: 10rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .future-medical::before {
+            content: '';
+            position: absolute;
+            top: -120%;
+            left: -120%;
+            width: 340%;
+            height: 340%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.25) 0%, transparent 70%);
+            animation: rotate 70s linear infinite;
+        }
+
+        .future-medical h3 {
+            color: white;
+            font-size: 4.5rem;
+            margin-bottom: 5rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .future-medical p {
+            font-size: 2rem;
+            line-height: 2.1;
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--secondary-dark);
+            color: white;
+            text-align: center;
+            padding: 10rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, transparent 70%, rgba(255, 112, 67, 0.3) 100%);
+        }
+
+        .footer-content {
+            max-width: 1100px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .logo-section {
+                gap: 40px;
+            }
+
+            .logo {
+                height: 80px;
+            }
+
+            .section {
+                padding: 5rem;
+            }
+
+            .hero-text .medical-features {
+                gap: 3rem;
+            }
+
+            .medical-feature {
+                padding: 1.5rem 3rem;
+                font-size: 0.9rem;
+            }
+
+            .nav-item {
+                padding: 2rem 3.5rem;
+                font-size: 0.9rem;
+            }
+
+            .education-platform {
+                grid-template-columns: 1fr;
+            }
+
+            .regional-network {
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            }
+
+            .crisis-stats {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 15px;
+            }
+
+            .hero-text h1 {
+                font-size: 3.5rem;
+            }
+
+            .hero-text .subtitle {
+                font-size: 1.5rem;
+            }
+
+            .section h2 {
+                font-size: 3.5rem;
+            }
+
+            .medical-crisis {
+                padding: 5rem;
+            }
+
+            .future-medical {
+                padding: 6rem;
+            }
+
+            .future-medical h3 {
+                font-size: 3rem;
+            }
+
+            .future-medical p {
+                font-size: 1.6rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo-section">
+                    <img src="images/logos/tein-logo.png" alt="TEIN CC" class="logo">
+                    <img src="images/logos/asia-connect-logo.png" alt="Asi@Connect" class="logo">
+                    <img src="images/logos/eu-logo.png" alt="European Union" class="logo">
+                </div>
+                <div class="hero-text">
+                    <h1>Nuclear Medicine Consolidation</h1>
+                    <p class="subtitle">Quality Care Enhancement Across Asian Countries</p>
+                    <div class="medical-info">WP5 Project - 5th Call - 9 Countries</div>
+                    <div class="medical-features">
+                        <span class="medical-feature">Online Education</span>
+                        <span class="medical-feature">Expert Training</span>
+                        <span class="medical-feature">Regional Network</span>
+                        <span class="medical-feature">Quality Care</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <nav>
+        <div class="container">
+            <div class="nav-container">
+                <a href="#overview" class="nav-item">Overview</a>
+                <a href="#crisis" class="nav-item">Medical Crisis</a>
+                <a href="#network" class="nav-item">Network</a>
+                <a href="#education" class="nav-item">Education</a>
+                <a href="#impact" class="nav-item">Impact</a>
+                <a href="#future" class="nav-item">Future</a>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <div class="container">
+            <section id="overview" class="section">
+                <h2>Addressing Asia's Nuclear Medicine Gap</h2>
+                <p>This groundbreaking project addresses the critical need to bridge nuclear medicine capabilities across developing Asian countries, where non-communicable diseases (NCDs) account for over 65% of global deaths. Leveraging the TEIN network infrastructure under the Asi@Connect initiative, the project consolidates an innovative online education platform to enhance nuclear medicine performance in resource-limited settings across the region.</p>
+
+                <div class="medical-crisis">
+                    <h3 style="position: relative; z-index: 2; color: var(--primary); font-size: 3.5rem; margin-bottom: 4rem;">Critical Healthcare Challenge</h3>
+                    <div class="crisis-stats">
+                        <div class="crisis-stat">
+                            <div class="crisis-icon">⚕️</div>
+                            <div class="crisis-title">65% Global Deaths</div>
+                            <div class="crisis-desc">Non-communicable diseases account for over 65% of global deaths, with Asian developing countries facing severe diagnostic and treatment gaps.</div>
+                        </div>
+                        <div class="crisis-stat">
+                            <div class="crisis-icon">🏥</div>
+                            <div class="crisis-title">Resource-Limited Settings</div>
+                            <div class="crisis-desc">Many Asian countries lack adequate nuclear medicine capabilities, requiring urgent capacity building and knowledge transfer initiatives.</div>
+                        </div>
+                        <div class="crisis-stat">
+                            <div class="crisis-icon">🌏</div>
+                            <div class="crisis-title">Regional Disparity</div>
+                            <div class="crisis-desc">Significant gaps exist between advanced and developing countries in access to nuclear medicine diagnostics and therapeutics.</div>
+                        </div>
+                    </div>
+                </div>
+
+                <h3>Building on Previous Success</h3>
+                <p>This initiative capitalizes on successful previous Asi@Connect efforts from the 2nd and 4th Calls, establishing a sustainable education ecosystem through routine online lectures, expert-led workshops, and strategic deployment of video conferencing systems at regional institutions. The goal is to empower the next generation of nuclear medicine leaders and ensure no Asian country is left behind in access to advanced medical technologies.</p>
+            </section>
+
+            <section id="crisis" class="section">
+                <h2>Healthcare Infrastructure Crisis</h2>
+                <p>The nuclear medicine capability gap across Asian developing countries represents a critical healthcare infrastructure challenge that directly impacts millions of lives. This project addresses the urgent need for standardized, accessible medical education and training that can rapidly scale across diverse healthcare systems and resource environments.</p>
+
+                <div class="impact-stats">
+                    <div class="impact-stat">
+                        <span class="impact-number">9</span>
+                        <span class="impact-label">Countries Served</span>
+                    </div>
+                    <div class="impact-stat">
+                        <span class="impact-number">20</span>
+                        <span class="impact-label">Video Systems Installed</span>
+                    </div>
+                    <div class="impact-stat">
+                        <span class="impact-number">160+</span>
+                        <span class="impact-label">Medical Professionals Trained</span>
+                    </div>
+                    <div class="impact-stat">
+                        <span class="impact-number">64+20</span>
+                        <span class="impact-label">Connected Centers</span>
+                    </div>
+                </div>
+            </section>
+
+            <section id="network" class="section">
+                <h2>Regional Medical Network</h2>
+                <p>The project establishes a comprehensive regional network spanning nine Asian countries, with Seoul National University in Korea serving as the coordinating hub. This network leverages existing NREN infrastructure to provide seamless connectivity and knowledge sharing across diverse healthcare institutions.</p>
+
+                <div class="regional-network">
+                    <div class="country-medical">
+                        <div class="country-flag">🇰🇷</div>
+                        <div class="country-name">Korea</div>
+                        <div class="country-institution">Seoul National University - Lead Coordinator</div>
+                    </div>
+                    <div class="country-medical">
+                        <div class="country-flag">🇧🇩</div>
+                        <div class="country-name">Bangladesh</div>
+                        <div class="country-institution">National Institute of Nuclear Medicine and Allied Sciences</div>
+                    </div>
+                    <div class="country-medical">
+                        <div class="country-flag">🇮🇩</div>
+                        <div class="country-name">Indonesia</div>
+                        <div class="country-institution">Hasan Sadikin Hospital</div>
+                    </div>
+                    <div class="country-medical">
+                        <div class="country-flag">🇻🇳</div>
+                        <div class="country-name">Vietnam</div>
+                        <div class="country-institution">Bach Mai Hospital</div>
+                    </div>
+                    <div class="country-medical">
+                        <div class="country-flag">🇹🇭</div>
+                        <div class="country-name">Thailand</div>
+                        <div class="country-institution">Chulalongkorn University, Mahidol University</div>
+                    </div>
+                    <div class="country-medical">
+                        <div class="country-flag">🇲🇲</div>
+                        <div class="country-name">Myanmar</div>
+                        <div class="country-institution">Yangon General Hospital</div>
+                    </div>
+                    <div class="country-medical">
+                        <div class="country-flag">🇲🇾</div>
+                        <div class="country-name">Malaysia</div>
+                        <div class="country-institution">Sunway University</div>
+                    </div>
+                    <div class="country-medical">
+                        <div class="country-flag">🇳🇵</div>
+                        <div class="country-name">Nepal</div>
+                        <div class="country-institution">Bir Hospital</div>
+                    </div>
+                    <div class="country-medical">
+                        <div class="country-flag">🇲🇳</div>
+                        <div class="country-name">Mongolia</div>
+                        <div class="country-institution">First Central Hospital of Mongolia</div>
+                    </div>
+                </div>
+
+                <h3>NREN Infrastructure Integration</h3>
+                <p>The project leverages affiliated National Research and Education Networks (NRENs) including BdREN (Bangladesh), INHERENT (Indonesia), VinaREN (Vietnam), ThaiREN (Thailand), MyREN (Malaysia), NREN (Nepal), and ErdemNET (Mongolia) to ensure robust, high-quality connectivity for medical education delivery across the region.</p>
+            </section>
+
+            <section id="education" class="section">
+                <h2>Comprehensive Education Platform</h2>
+                <p>The project establishes a sustainable online education ecosystem featuring semester-based lecture series, seasonal workshops, and comprehensive content dissemination through web platforms and multimedia channels. This approach ensures continuous learning opportunities for nuclear medicine professionals across diverse time zones and institutional contexts.</p>
+
+                <div class="education-platform">
+                    <div class="platform-component">
+                        <h4>Video Conferencing Infrastructure</h4>
+                        <p>Installation of 20 advanced video conferencing systems across institutions in Indonesia, Vietnam, Philippines, and Myanmar, enabling high-quality remote education delivery and real-time interaction between experts and learners.</p>
+                    </div>
+                    <div class="platform-component">
+                        <h4>TEIN Lecture Series</h4>
+                        <p>Delivery of comprehensive semester-based lecture series featuring international experts, covering topics from medical physics to correlative imaging, with weekly live online sessions accessible across all participating countries.</p>
+                    </div>
+                    <div class="platform-component">
+                        <h4>Seasonal Workshop Programs</h4>
+                        <p>Specialized summer and winter workshops focusing on radiochemistry, communication best practices, basic nuclear physics, and advanced imaging technologies, providing intensive learning experiences.</p>
+                    </div>
+                    <div class="platform-component">
+                        <h4>Digital Content Repository</h4>
+                        <p>Comprehensive online platform at nmportal.org featuring 212 web contents and 131 YouTube videos, ensuring continuous access to educational materials for over 160 beneficiaries across the region.</p>
+                    </div>
+                </div>
+
+                <h3>Key Educational Activities</h3>
+                <div class="activities-grid">
+                    <div class="activity-card">
+                        <div class="activity-title">1st & 2nd Semester Lectures (2022)</div>
+                        <div class="activity-desc">Weekly live online lectures delivered by international experts, covering comprehensive nuclear medicine topics including medical physics, imaging protocols, and correlative analysis techniques.</div>
+                    </div>
+                    <div class="activity-card">
+                        <div class="activity-title">TEIN Summer Workshop (August 2022)</div>
+                        <div class="activity-desc">Intensive workshop focused on radiochemistry principles and enhanced communication strategies across nuclear medicine practitioners in the regional network.</div>
+                    </div>
+                    <div class="activity-card">
+                        <div class="activity-title">TEIN Winter Workshop (February 2023)</div>
+                        <div class="activity-desc">Comprehensive training program addressing fundamental nuclear physics concepts and advanced imaging technologies for improved diagnostic capabilities.</div>
+                    </div>
+                    <div class="activity-card">
+                        <div class="activity-title">Content Platform Expansion</div>
+                        <div class="activity-desc">Development and maintenance of extensive digital repository with 212 web-based educational materials and 131 instructional videos for continuous learning access.</div>
+                    </div>
+                    <div class="activity-card">
+                        <div class="activity-title">Regional Expert Network</div>
+                        <div class="activity-desc">Coordination of expert participation from 13 countries, ensuring diverse perspectives and comprehensive coverage of nuclear medicine specialties and applications.</div>
+                    </div>
+                    <div class="activity-card">
+                        <div class="activity-title">Next-Generation Empowerment</div>
+                        <div class="activity-desc">Active involvement and leadership development of next-generation nuclear medicine professionals from each participating country, building sustainable regional expertise.</div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="impact" class="section">
+                <h2>Transformative Impact & Outcomes</h2>
+
+                <div class="impact-stats">
+                    <div class="impact-stat">
+                        <span class="impact-number">32</span>
+                        <span class="impact-label">Courses Delivered</span>
+                    </div>
+                    <div class="impact-stat">
+                        <span class="impact-number">212</span>
+                        <span class="impact-label">Online Materials</span>
+                    </div>
+                    <div class="impact-stat">
+                        <span class="impact-number">31K+</span>
+                        <span class="impact-label">YouTube Views</span>
+                    </div>
+                    <div class="impact-stat">
+                        <span class="impact-number">13</span>
+                        <span class="impact-label">Expert Countries</span>
+                    </div>
+                </div>
+
+                <h3>Key Achievements</h3>
+                <div class="activities-grid">
+                    <div class="activity-card">
+                        <div class="activity-title">Sustainable Education Platform</div>
+                        <div class="activity-desc">Successfully developed and maintained a comprehensive online education platform through TEIN infrastructure, with all resources accessible at nmportal.org for continuous learning and reference.</div>
+                    </div>
+                    <div class="activity-card">
+                        <div class="activity-title">Local Educator Empowerment</div>
+                        <div class="activity-desc">Facilitated expert participation from 13 countries with active involvement of next-generation professionals, building sustainable local capacity and leadership across the region.</div>
+                    </div>
+                    <div class="activity-card">
+                        <div class="activity-title">Expanded Regional Reach</div>
+                        <div class="activity-desc">Successfully expanded from 64 connected centers to 84 centers across Asia, significantly increasing access to nuclear medicine education and professional development opportunities.</div>
+                    </div>
+                    <div class="activity-card">
+                        <div class="activity-title">Knowledge Dissemination Success</div>
+                        <div class="activity-desc">Achieved remarkable engagement with YouTube channel reaching over 31,000 views, demonstrating strong regional demand for accessible nuclear medicine education content.</div>
+                    </div>
+                </div>
+
+                <h3>Challenges & Strategic Solutions</h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(550px, 1fr)); gap: 6rem; margin: 6rem 0;">
+                    <div style="background: linear-gradient(135deg, rgba(255, 112, 67, 0.18), rgba(239, 83, 80, 0.12)); padding: 5rem; border-radius: 35px; border-left: 12px solid var(--secondary);">
+                        <h4 style="color: var(--secondary-dark); margin-bottom: 3.5rem; font-size: 2.2rem;">Implementation Challenges</h4>
+                        <div style="space-y: 3rem;">
+                            <div style="margin: 3rem 0; padding: 3.5rem; background: rgba(255, 255, 255, 0.8); border-radius: 20px;">
+                                <strong>COVID-19 Disruptions:</strong> Pandemic-related delays affected equipment procurement and installation timelines, requiring flexible scheduling and alternative delivery methods for educational programs.
+                            </div>
+                            <div style="margin: 3rem 0; padding: 3.5rem; background: rgba(255, 255, 255, 0.8); border-radius: 20px;">
+                                <strong>Connectivity Barriers:</strong> Internet connectivity limitations in some regions prevented live participation, necessitating recorded content distribution and asynchronous learning options.
+                            </div>
+                            <div style="margin: 3rem 0; padding: 3.5rem; background: rgba(255, 255, 255, 0.8); border-radius: 20px;">
+                                <strong>Initial Low Engagement:</strong> Early participant hesitancy required enhanced publicity campaigns and structured feedback surveys to tailor content to regional needs and preferences.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div style="background: linear-gradient(135deg, rgba(239, 83, 80, 0.18), rgba(156, 58, 38, 0.12)); padding: 5rem; border-radius: 35px; border-left: 12px solid var(--primary);">
+                        <h4 style="color: var(--primary); margin-bottom: 3.5rem; font-size: 2.2rem;">Strategic Adaptations</h4>
+                        <div style="space-y: 3rem;">
+                            <div style="margin: 3rem 0; padding: 3.5rem; background: rgba(255, 255, 255, 0.8); border-radius: 20px;">
+                                <strong>Flexible Delivery Methods:</strong> Implementation of hybrid delivery approaches combining live sessions with recorded content, ensuring accessibility regardless of connectivity constraints or time zone differences.
+                            </div>
+                            <div style="margin: 3rem 0; padding: 3.5rem; background: rgba(255, 255, 255, 0.8); border-radius: 20px;">
+                                <strong>Enhanced Engagement Strategies:</strong> Development of targeted publicity campaigns and regular feedback collection to optimize content relevance and increase participant engagement across diverse cultural contexts.
+                            </div>
+                            <div style="margin: 3rem 0; padding: 3.5rem; background: rgba(255, 255, 255, 0.8); border-radius: 20px;">
+                                <strong>Robust Content Repository:</strong> Creation of comprehensive digital archives ensuring continuous access to educational materials even when live participation is not possible due to technical or scheduling constraints.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <h3>Contributing to Sustainable Development Goals</h3>
+                <div class="sdg-medical">
+                    <div class="sdg-card">
+                        <span class="sdg-number">SDG 3</span>
+                        <span class="sdg-title">Good Health and Well-Being</span>
+                    </div>
+                    <div class="sdg-card">
+                        <span class="sdg-number">SDG 4</span>
+                        <span class="sdg-title">Quality Education</span>
+                    </div>
+                    <div class="sdg-card">
+                        <span class="sdg-number">SDG 9</span>
+                        <span class="sdg-title">Industry, Innovation and Infrastructure</span>
+                    </div>
+                    <div class="sdg-card">
+                        <span class="sdg-number">SDG 17</span>
+                        <span class="sdg-title">Partnerships for the Goals</span>
+                    </div>
+                </div>
+            </section>
+
+            <section id="future" class="section">
+                <h2>Future Expansion & Sustainability</h2>
+
+                <h3>Global Scaling Initiative</h3>
+                <p>Building on the success of the Asian nuclear medicine education network, plans are underway to expand this proven model to Africa, the Middle East, and South America. These expansion efforts will leverage lessons learned from the Asian implementation to address similar healthcare capacity gaps in other developing regions worldwide.</p>
+
+                <h3>Enhanced Partnership Framework</h3>
+                <p>A new project partnership with KOICA (Korea International Cooperation Agency) will deepen nuclear medicine training capabilities specifically in Indonesia, while continued collaboration with international organizations including IAEA, EANM, and SNMMI ensures global standards and best practices integration.</p>
+
+                <div class="future-medical">
+                    <h3>Vision for Global Nuclear Medicine Excellence</h3>
+                    <p>The Nuclear Medicine Consolidation project is establishing a new paradigm for international medical education collaboration, where advanced diagnostic and therapeutic capabilities are accessible to healthcare professionals regardless of geographic location or resource constraints. This foundation will transform how developing countries build nuclear medicine expertise, ensuring that life-saving diagnostic and treatment technologies reach every corner of Asia and beyond, ultimately contributing to global health equity and improved patient outcomes worldwide.</p>
+                </div>
+
+                <h3>Sustainable Development Initiatives</h3>
+                <div class="education-platform">
+                    <div class="platform-component">
+                        <h4>Advanced Education Ecosystem</h4>
+                        <p>Continuation and enhancement of the web-based education system with regularly updated content, ensuring the platform remains current with latest nuclear medicine developments and technological advances.</p>
+                    </div>
+                    <div class="platform-component">
+                        <h4>International Standards Integration</h4>
+                        <p>Strengthened collaboration with IAEA, EANM, and SNMMI to ensure all educational content meets international standards and incorporates global best practices in nuclear medicine.</p>
+                    </div>
+                    <div class="platform-component">
+                        <h4>Regional Expertise Development</h4>
+                        <p>Focus on developing regional centers of excellence that can serve as hubs for ongoing education and training, creating sustainable local capacity for nuclear medicine advancement.</p>
+                    </div>
+                    <div class="platform-component">
+                        <h4>Technology Innovation Integration</h4>
+                        <p>Integration of emerging technologies including AI-assisted diagnostics, advanced imaging techniques, and telemedicine capabilities into the educational curriculum and practical training programs.</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <h3>Nuclear Medicine Consolidation Across Asia</h3>
+                <p>Transforming healthcare access and quality through innovative online education networks and regional collaboration in nuclear medicine excellence.</p>
+                <p style="margin-top: 5rem; opacity: 0.9; font-size: 1.5rem;">
+                    Multi-country initiative spanning Korea, Bangladesh, Indonesia, Vietnam, Thailand, Myanmar, Malaysia, Nepal, and Mongolia<br>
+                    Building the foundation for equitable nuclear medicine access across Asia
+                </p>
+                <p style="margin-top: 3rem; font-size: 1.2rem; opacity: 0.8;">
+                    WP5 Project - 5th Call | Nuclear Medicine • Medical Education • Regional Networks • Healthcare Equity
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -250px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animationPlayState = 'running';
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all sections for animations
+        document.querySelectorAll('.section').forEach(section => {
+            observer.observe(section);
+        });
+
+        // Enhanced interactive effects for crisis stats
+        document.querySelectorAll('.crisis-stat').forEach(stat => {
+            stat.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-30px) scale(1.08)';
+                this.style.borderColor = 'var(--secondary)';
+                this.style.boxShadow = '0 45px 90px rgba(239, 83, 80, 0.4)';
+            });
+            
+            stat.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+                this.style.borderColor = 'transparent';
+                this.style.boxShadow = 'none';
+            });
+        });
+
+        // Country medical network interactions
+        document.querySelectorAll('.country-medical').forEach(country => {
+            country.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-35px) scale(1.12)';
+                this.style.boxShadow = '0 55px 110px rgba(239, 83, 80, 0.7)';
+            });
+            
+            country.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+                this.style.boxShadow = 'none';
+            });
+        });
+
+        // Platform component hover effects
+        document.querySelectorAll('.platform-component').forEach(component => {
+            component.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateX(30px)';
+                this.style.boxShadow = '0 35px 70px rgba(239, 83, 80, 0.3)';
+                this.style.borderLeftColor = 'var(--secondary)';
+            });
+            
+            component.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateX(0)';
+                this.style.boxShadow = 'none';
+                this.style.borderLeftColor = 'var(--primary)';
+            });
+        });
+
+        // Activity card interactions
+        document.querySelectorAll('.activity-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-25px) scale(1.05)';
+                this.style.borderColor = 'var(--secondary)';
+                this.style.boxShadow = '0 40px 80px rgba(239, 83, 80, 0.35)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+                this.style.borderColor = 'transparent';
+                this.style.boxShadow = '0 25px 60px rgba(239, 83, 80, 0.18)';
+            });
+        });
+
+        // Impact stat effects
+        document.querySelectorAll('.impact-stat').forEach(stat => {
+            stat.addEventListener('mouseenter', function() {
+                this.style.transform = 'scale(1.18)';
+            });
+            
+            stat.addEventListener('mouseleave', function() {
+                this.style.transform = 'scale(1)';
+            });
+        });
+
+        // SDG card effects
+        document.querySelectorAll('.sdg-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-25px) scale(1.1)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+
+        // Progressive section loading animation
+        window.addEventListener('scroll', function() {
+            const sections = document.querySelectorAll('.section');
+            const triggerBottom = window.innerHeight / 5 * 4;
+            
+            sections.forEach(section => {
+                const sectionTop = section.getBoundingClientRect().top;
+                
+                if (sectionTop < triggerBottom) {
+                    section.style.opacity = '1';
+                    section.style.transform = 'translateY(0)';
+                }
+            });
+        });
+
+        // Initialize page animations and effects
+        document.addEventListener('DOMContentLoaded', function() {
+            // Stagger section animations
+            setTimeout(() => {
+                document.querySelectorAll('.section').forEach((section, index) => {
+                    setTimeout(() => {
+                        section.style.opacity = '1';
+                        section.style.transform = 'translateY(0)';
+                    }, index * 500);
+                });
+            }, 1000);
+
+            // Add floating animation to header logos
+            document.querySelectorAll('.logo').forEach((logo, index) => {
+                logo.style.animationDelay = `${index * 0.8}s`;
+            });
+        });
+
+        // Create medical background effects
+        function createMedicalEffects() {
+            const header = document.querySelector('header');
+            for (let i = 0; i < 7; i++) {
+                const element = document.createElement('div');
+                element.style.position = 'absolute';
+                element.style.width = `${40 + Math.random() * 100}px`;
+                element.style.height = `${40 + Math.random() * 100}px`;
+                element.style.background = 'rgba(255, 255, 255, 0.06)';
+                element.style.borderRadius = '50%';
+                element.style.top = Math.random() * 100 + '%';
+                element.style.left = Math.random() * 100 + '%';
+                element.style.animation = `float ${18 + Math.random() * 12}s ease-in-out infinite`;
+                element.style.animationDelay = Math.random() * 12 + 's';
+                header.appendChild(element);
+            }
+        }
+
+        // Initialize medical background effects
+        createMedicalEffects();
+    </script>
+</body>
+</html>
